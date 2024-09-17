@@ -1,3 +1,6 @@
+<br>
+<a href="insert_form.php">Insertar dato</a>
+<br><br>
 
 <?php
 $mysqli = new mysqli("localhost", "root", "", "test");
@@ -23,5 +26,3 @@ while ($row = $resultado->fetch_assoc()) {
 $mysqli->close();
 
 ?>
-<br>
-<a href="insert_form.php">Anadir alumno</a>
