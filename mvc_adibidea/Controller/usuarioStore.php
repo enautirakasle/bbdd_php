@@ -17,6 +17,6 @@ $usuario = new Usuario($username, $password, $nombre);
 echo $usuario->getUsername().$usuario->getPassword().$usuario->getNombre();
 $con->insertUsuario($usuario);
 
-header("Location: C_verUsuarios.php");
+header("Location: usuarios.php");
 exit();
 ?>

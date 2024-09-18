@@ -5,6 +5,7 @@
 	<title>Lista de usuarios</title>
 </head>
 <body>
+	<a href="<?php echo BASE_URL; ?>Controller/usuarios.php">Home</a> - 
 	<a href="<?php echo BASE_URL; ?>Controller/usuarioCreate.php">Insertar usuario</a>
 	<table>
 		<thead>
@@ -19,7 +20,8 @@
 		</thead>
 		<tbody>
 			<?php
-			foreach ($usuarios as $usuario) {
+			if (isset($usuario)) {
+				
 				echo "<tr>";
 				echo "<td>" . $usuario->getUsername() . "</td>";
 				echo "<td>" . $usuario->getPassword() . "</td>";
@@ -28,6 +30,8 @@
 				echo "<td><a href='" . BASE_URL . "Controller/usuarioEdit.php?username=" . $usuario->getUsername() . "'>Modificar</a></td>";
 				echo "<td><a href='" . BASE_URL . "Controller/usuarioDestroy.php?username=" . $usuario->getUsername() . "'>Eliminar</a></td>";
 				echo "</tr>";
+			} else {
+				echo "<tr><td colspan='6'>No se encontró ningún usuario.</td></tr>";
 			}
 
 			?>

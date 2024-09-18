@@ -1,6 +1,6 @@
 <?php
 //hemendik https://www.youtube.com/watch?v=JWi4_8_d-RM&t=485s
-require 'Controller/C_verUsuarios.php';
+require 'Controller/usuarios.php';
 /*
 // Conexión a la base de datos MySQL
 $conexion = new mysqli('localhost', 'root', '', 'instagram_mvc');

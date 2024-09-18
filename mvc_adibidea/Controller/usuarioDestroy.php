@@ -12,6 +12,6 @@ $username = $_GET['username'];
 $con = new Conexion();
 $con->eliminarUsuario($username);
 
-header("Location: C_verUsuarios.php");
+header("Location: usuarios.php");
 exit();
 ?>

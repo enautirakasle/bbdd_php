@@ -16,6 +16,5 @@ $usuario = new Usuario($username, $password, $nombre);
 
 $con->modificarUsuario($usuario);
 
-header("Location: C_verUsuarios.php");
+header("Location: usuarios.php");
 exit();
-?>

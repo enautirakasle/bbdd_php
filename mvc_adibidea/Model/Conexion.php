@@ -36,6 +36,18 @@ class Conexion
         $retorno = [];
         
         while($fila = $query->fetch_assoc()){
+            $retorno[] = new Usuario($fila['username'], $fila['password'], $fila['nombre']);
+        }
+    
+        return  $retorno;
+    }
+
+    public function getUsersAssoc(){
+        $query = $this->con->query('SELECT * FROM usuarios');
+        
+        $retorno = [];
+        
+        while($fila = $query->fetch_assoc()){
             $retorno[] = $fila;
         }
     
