@@ -5,7 +5,7 @@
 	<title>Lista de usuarios</title>
 </head>
 <body>
-	<a href="<?php echo BASE_URL; ?>Controller/C_mostrarInsertUsuarios.php">Insertar usuario</a>
+	<a href="<?php echo BASE_URL; ?>Controller/usuarioCreate.php">Insertar usuario</a>
 	<table>
 		<thead>
 			<tr>
@@ -23,8 +23,8 @@
 				echo "<td>" . $usuario['username'] . "</td>";
 				echo "<td>" . $usuario['password'] . "</td>";
 				echo "<td>" . $usuario['nombre'] . "</td>";
-				echo "<td><a href='" . BASE_URL . "Controller/C_modificarUsuario.php?username=" . $usuario['username'] . "'>Modificar</a></td>";
-				echo "<td><a href='" . BASE_URL . "Controller/C_eliminarUsuario.php?username=" . $usuario['username'] . "'>Eliminar</a></td>";
+				echo "<td><a href='" . BASE_URL . "Controller/usuarioEdit.php?username=" . $usuario['username'] . "'>Modificar</a></td>";
+				echo "<td><a href='" . BASE_URL . "Controller/usuarioDestroy.php?username=" . $usuario['username'] . "'>Eliminar</a></td>";
 				echo "</tr>";
 			}
 

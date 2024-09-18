@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form action="C_insertUsuario.php" method="post">
+    <form action="usuarioStore.php" method="post">
         <input type="text" name="username" placeholder="username">
         <input type="text" name="nombre" placeholder="nombre">
         <input type="text" name="password" placeholder="password">

@@ -13,7 +13,7 @@ require_once __DIR__ . '/../config.php';
 </head>
 
 <body>
-    <form action="<?php echo BASE_URL; ?>Controller/C_updateUsuario.php" method="post">
+    <form action="<?php echo BASE_URL; ?>Controller/usuarioUpdate.php" method="post">
         <input type="text" name="username" value="<?php echo $usuario->getUsername(); ?>" readonly>
         <input type="text" name="nombre" value="<?php echo $usuario->getNombre(); ?>" placeholder="nombre">
         <input type="password" name="password" value="<?php echo $usuario->getPassword(); ?>" placeholder="password">
