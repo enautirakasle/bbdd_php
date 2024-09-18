@@ -15,7 +15,6 @@
 				<th>Nombre real</th>
 				<th></th>
 				<th></th>
-				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -26,7 +25,6 @@
 				echo "<td>" . $usuario->getUsername() . "</td>";
 				echo "<td>" . $usuario->getPassword() . "</td>";
 				echo "<td>" . $usuario->getNombre() . "</td>";
-				echo "<td><a href='" . BASE_URL . "Controller/usuario.php?username=" . $usuario->getUsername() . "'>Ver</a></td>";
 				echo "<td><a href='" . BASE_URL . "Controller/usuarioEdit.php?username=" . $usuario->getUsername() . "'>Modificar</a></td>";
 				echo "<td><a href='" . BASE_URL . "Controller/usuarioDestroy.php?username=" . $usuario->getUsername() . "'>Eliminar</a></td>";
 				echo "</tr>";
