@@ -51,10 +51,9 @@ class Conexion
         $sentencia->close();
     }
 
-    public function eliminarUsuario($usuario){
+    public function eliminarUsuario($username){
         $sentencia = $this->con->prepare("DELETE FROM usuarios WHERE username = ?");
         
-        $username = $usuario->getUsername();
         $sentencia->bind_param("s", $username);
         
         $sentencia->execute();

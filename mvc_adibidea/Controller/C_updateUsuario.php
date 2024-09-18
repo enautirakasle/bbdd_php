@@ -13,9 +13,8 @@ $nombre = $_POST['nombre'];
 
 $con = new Conexion();
 $usuario = new Usuario($username, $password, $nombre);
-//   var_dump($usuario);
-echo $usuario->getUsername().$usuario->getPassword().$usuario->getNombre();
-$con->insertUsuario($usuario);
+
+$con->modificarUsuario($usuario);
 
 header("Location: C_verUsuarios.php");
 exit();

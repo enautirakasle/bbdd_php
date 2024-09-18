@@ -1,19 +1,13 @@
 <?php
 
 use Model\Conexion;
-use Model\Usuario;
-require_once '../Model/Usuario.php';
+
+require_once __DIR__ . '/../config.php';
 require_once '../Model/Conexion.php';
 
-$username = $_POST['username'];
-$password = $_POST['password'];
-$nombre = $_POST['nombre'];
+$username = $_GET['username'];
 
-$con = new Conexion();
-$usuario = new Usuario($username, $password, $nombre);
+$conexion = new Conexion();
+$usuario = $conexion->getUser($username);
 
-$con->modificarUsuario($usuario);
-
-header("Location: C_verUsuarios.php");
-exit();
-?>
+require_once '../Views/V_formModificarUsuario.php';
