@@ -9,6 +9,6 @@ $con = new Conexion();
 
 $usuarios = $con->getUsers();
 
-require (__DIR__ . '/../Views/V_verUsuarios.php');
+require (__DIR__ . '/../Views/verUsuarios.php');
 
 ?>

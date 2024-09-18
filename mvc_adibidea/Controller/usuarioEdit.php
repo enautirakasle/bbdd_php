@@ -10,4 +10,4 @@ $username = $_GET['username'];
 $conexion = new Conexion();
 $usuario = $conexion->getUser($username);
 
-require_once '../Views/V_formModificarUsuario.php';
+require_once '../Views/editUsuarioForm.php';

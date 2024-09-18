@@ -10,4 +10,4 @@ $username = $_GET['username'];
 $con = new Conexion();
 $usuario = $con->getUser($username);
 
-require (__DIR__ . '/../Views/V_verUsuario.php');
+require (__DIR__ . '/../Views/verUsuario.php');
