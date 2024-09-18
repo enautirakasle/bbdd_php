@@ -11,5 +11,3 @@ $con = new Conexion();
 $usuarios = $con->getUser($username);
 
 require (__DIR__ . '/../Views/V_verUsuario.php');
-
-?>
