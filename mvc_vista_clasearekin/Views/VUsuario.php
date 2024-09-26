@@ -8,7 +8,7 @@ class VUsuario extends Vista {
     // La clase VUsuario hereda de Vista (definida en General.php)
     // No se incluyen métodos adicionales según las instrucciones de seguimiento
     public function tablaUsuarios($usuarios) {
-        echo '<table>';
+        echo '<table class="table">';
         echo '<thead>';
         echo '<tr>';
         echo '<th>Nombre de usuario</th>';

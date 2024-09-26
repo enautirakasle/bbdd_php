@@ -7,7 +7,7 @@
 require_once __DIR__ . '/../config.php';
 
 // Requiere el archivo que contiene la clase Conexion
-require(__DIR__ . '/../Model/Conexion.php');
+require(__DIR__ . '/../Model/MUsuario.php');
 //var_dump($_POST);
 
 $username = $_POST['username'];

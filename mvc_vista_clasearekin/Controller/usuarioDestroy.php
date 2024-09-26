@@ -7,12 +7,12 @@
 require_once __DIR__ . '/../config.php';
 
 // Requiere el archivo que contiene la clase Conexion
-require(__DIR__ . '/../Model/Conexion.php');
+require(__DIR__ . '/../Model/MUsuario.php');
 
 $username = $_GET['username'];
 
-$con = new Model\Conexion();
-$con->eliminarUsuario($username);
+$con = new Model\MUsuario();
+$con->eliminarUsuario( $username );
 
 header("Location: usuarios.php");
 exit();

@@ -7,12 +7,12 @@
 require_once __DIR__ . '/../config.php';
 
 // Requiere el archivo que contiene la clase Conexion
-require(__DIR__ . '/../Model/Conexion.php');
+require(__DIR__ . '/../Model/MUsuario.php');
 
 // Incluye el archivo que contiene la clase VUsuario (Vista de Usuario)
 require_once(__DIR__ . '/../Views/VUsuario.php');
 
-$con = new Model\Conexion();
+$con = new Model\MUsuario();
 $usuarios = $con->getUsers();
 
 $vista = new VUsuario();
