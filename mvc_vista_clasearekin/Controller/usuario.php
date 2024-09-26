@@ -11,6 +11,7 @@ require(__DIR__ . '/../Model/Conexion.php');
 
 // Incluye el archivo que contiene la clase VUsuario (Vista de Usuario)
 require_once(__DIR__ . '/../Views/VUsuario.php');
+
 $username = $_GET['username'];
 
 $con = new Model\Conexion();

@@ -75,10 +75,16 @@ class Conexion
     public function modificarUsuario($usuario){
         $sentencia = $this->con->prepare("UPDATE usuarios SET password = ?, nombre = ? WHERE username = ?");
         
-        $sentencia->bind_param("sss", $usuario->getPassword(), $usuario->getNombre(), $usuario->getUsername());
+        $password = $usuario->getPassword();
+        $nombre = $usuario->getNombre();
+        $username = $usuario->getUsername();
+        
+        $sentencia->bind_param("sss", $password, $nombre, $username);
         
         $sentencia->execute();
         $sentencia->close();
     }
+
+ 
 }
 

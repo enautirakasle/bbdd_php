@@ -1,19 +1,22 @@
 <?php
 
-use Model\Conexion;
-use Model\Usuario;
+// Este código importa y requiere los archivos necesarios para el funcionamiento del controlador de usuarios
 
+
+// Incluye el archivo de configuración
 require_once __DIR__ . '/../config.php';
-require_once '../Model/Usuario.php';
-require_once '../Model/Conexion.php';
+
+// Requiere el archivo que contiene la clase Conexion
+require(__DIR__ . '/../Model/Conexion.php');
+//var_dump($_POST);
 
 $username = $_POST['username'];
 $password = $_POST['password'];
 $nombre = $_POST['nombre'];
 
-$con = new Conexion();
-$usuario = new Usuario($username, $password, $nombre);
+$usuario = new Model\Usuario($username, $password, $nombre);
 
+$con = new Model\Conexion();
 $con->modificarUsuario($usuario);
 
 header("Location: usuarios.php");

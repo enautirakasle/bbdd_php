@@ -23,15 +23,20 @@ class VUsuario extends Vista {
             echo '<td>' . $usuario->getUsername() . '</td>';
             echo '<td>' . $usuario->getNombre() . '</td>';
             echo '<td>' . $usuario->getPassword() . '</td>';
-            echo '<td><a href="usuario.php?username=' . $usuario->getUsername() . '">Ver</a> | <a href="index.php?username=' . $usuario->getUsername() . '&action=edit">Editar</a> | <a href="index.php?username=' . $usuario->getUsername() . '&action=delete">Eliminar</a></td>';
+            echo '<td><a href="usuario.php?username=' . $usuario->getUsername() . '">Ver</a> | <a href="usuarioEdit.php?username=' . $usuario->getUsername() . '">Editar</a> | <a href="usuarioDestroy.php?username=' . $usuario->getUsername() . '">Eliminar</a></td>';
             echo '</tr>';
         }       
         echo '</tbody>';
         echo '</table>';    
     }
 
+    public function cabecera() {
+        echo '<h1>Usuarios</h1>';
+        echo '<a href="usuarioCreate.php">Crear usuario</a>';
+    }
+
     public function formUsuario() {
-        echo '<form action="index.php" method="post">';
+        echo '<form action="usuarioStore.php" method="post">';
         echo '<div>';
         echo '<label for="username">Nombre de usuario</label>';
         echo '<input type="text" id="username" name="username" required>';
@@ -49,14 +54,14 @@ class VUsuario extends Vista {
     }   
 
     public function formEditUsuario($usuario) {
-        echo '<form action="index.php" method="post">';
+        echo '<form action="usuarioUpdate.php" method="post">';
         echo '<div>';
         echo '<label for="nombre">Nombre</label>';
         echo '<input type="text" id="nombre" name="nombre" value="' . $usuario->getNombre() . '" required>';
         echo '</div>';
         echo '<div>';
         echo '<label for="username">Username</label>';
-        echo '<input type="text" id="username" name="username" value="' . $usuario->getUsername() . '" required>';
+        echo '<input type="text" id="username" name="username" value="' . $usuario->getUsername() . '" readonly>';
         echo '</div>';
         echo '<div>';
         echo '<label for="password">Contraseña</label>';

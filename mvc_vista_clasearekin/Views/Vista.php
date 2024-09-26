@@ -13,9 +13,11 @@ class Vista {
         echo '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>';
         echo '</head>';
         echo '<body>';
+        echo '<div class="container">';
     }
 
     public function endhtml() {
+        echo '</div> <!-- cierre de div container -->';
         echo '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>';
         echo '</body>';
         echo '</html>';

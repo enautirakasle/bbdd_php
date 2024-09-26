@@ -17,6 +17,7 @@ $usuarios = $con->getUsers();
 
 $vista = new VUsuario();
 $vista->inithtml();
+$vista->cabecera();
 $vista->tablaUsuarios($usuarios);
 $vista->endhtml();
 
