@@ -1,7 +1,5 @@
 <?php
 
-// Incluye el archivo de configuración
-require_once __DIR__ . '/../config.php';
 
 // Requiere el archivo que contiene la clase Conexion
 require(__DIR__ . '/../Model/MUsuario.php');

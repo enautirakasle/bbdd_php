@@ -3,8 +3,6 @@
 // Este código importa y requiere los archivos necesarios para el funcionamiento del controlador de usuarios
 
 
-// Incluye el archivo de configuración
-require_once __DIR__ . '/../config.php';
 
 // Requiere el archivo que contiene la clase Conexion
 require(__DIR__ . '/../Model/MUsuario.php');
@@ -14,8 +12,8 @@ require_once(__DIR__ . '/../Views/VUsuario.php');
 
 $username = $_GET['username'];
 
-$conexion = new Model\Conexion();
-$usuario = $conexion->getUser($username);
+$mUsuario = new Model\MUsuario();
+$usuario = $mUsuario->getUser($username);
 
 $vista = new VUsuario();
 $vista->inithtml();

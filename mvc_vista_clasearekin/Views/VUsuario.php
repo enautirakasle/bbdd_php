@@ -25,7 +25,7 @@ class VUsuario extends Vista {
             echo '<td>' . $usuario->getPassword() . '</td>';
             echo '<td><a href="usuario.php?username=' . $usuario->getUsername() . '">Ver</a> | <a href="usuarioEdit.php?username=' . $usuario->getUsername() . '">Editar</a> | <a href="usuarioDestroy.php?username=' . $usuario->getUsername() . '">Eliminar</a></td>';
             echo '</tr>';
-        }       
+        }
         echo '</tbody>';
         echo '</table>';    
     }
