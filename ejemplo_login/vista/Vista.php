@@ -2,7 +2,7 @@
 
 class Vista {
 
-    public static function inithtml() { ?>
+    public function inithtml() { ?>
         <!DOCTYPE html>
         <html lang="es">
         <head>
@@ -17,7 +17,7 @@ class Vista {
     <?php }
 
     
-    public static function endhtml() {
+    public function endhtml() {
         echo '</div> <!-- cierre de div container -->';
         echo '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>';
         echo '</body>';

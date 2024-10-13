@@ -7,7 +7,7 @@ require_once __DIR__ . '/Vista.php';
 class VUsuario extends Vista {
     // La clase VUsuario hereda de Vista (definida en General.php)
     // No se incluyen métodos adicionales según las instrucciones de seguimiento
-    public static function tablaUsuarios($usuarios) {
+    public function tablaUsuarios($usuarios) {
         echo '<table class="table table-striped">';
         echo '<thead>';
         echo '<tr>';
@@ -30,12 +30,12 @@ class VUsuario extends Vista {
         echo '</table>';    
     }
 
-    public static function cabecera() {
+    public function cabecera() {
         echo '<h1>Usuarios</h1>';
         echo '<a href="usuarioCreate.php">Crear usuario</a>';
     }
 
-    public static function formUsuario() {
+    public function formUsuario() {
         echo '<form action="usuarioStore.php" method="post">';
         echo '<div>';
         echo '<label for="username">Nombre de usuario</label>';
@@ -53,7 +53,7 @@ class VUsuario extends Vista {
         echo '</form>';
     }   
 
-    public static function formEditUsuario($usuario) {
+    public function formEditUsuario($usuario) {
         echo '<form action="usuarioUpdate.php" method="post">';
         echo '<div>';
         echo '<label for="nombre">Nombre</label>';
@@ -71,7 +71,7 @@ class VUsuario extends Vista {
         echo '</form>';
     }
 
-    public static function verUsuario($usuario) {
+    public function verUsuario($usuario) {
         echo '<div>';
         echo '<p>Nombre: ' . $usuario["nombre"] . '</p>';
         echo '<p>Username: ' . $usuario["username"] . '</p>';
