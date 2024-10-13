@@ -4,7 +4,7 @@ namespace Model;
 
 class Conexion
 {
-    private $con;
+    protected $con;
     
     public function __construct(){
         $this->con = new \mysqli('localhost', 'root', '', 'instagram_mvc');

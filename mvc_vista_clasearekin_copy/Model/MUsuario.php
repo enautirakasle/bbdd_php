@@ -36,8 +36,6 @@ class MUsuario extends Conexion {
         return  $usuarios;
     }
 
-   
-    
     public function insertUsuario($usuario){
         $sentencia = $this->getCon()->prepare("INSERT INTO usuarios(username, password, nombre) VALUES (?,?,?)");
         

@@ -1,8 +1,5 @@
 <?php
 
-// Este código importa y requiere los archivos necesarios para el funcionamiento del controlador de usuarios
-
-
 
 // Requiere el archivo que contiene la clase Conexion
 require(__DIR__ . '/../Model/MUsuario.php');
@@ -18,5 +15,7 @@ $vista->inithtml();
 $vista->cabecera();
 $vista->tablaUsuarios($usuarios);
 $vista->endhtml();
+
+
 
 ?>
