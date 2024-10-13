@@ -1,14 +1,11 @@
 <?php
-require_once __DIR__ . '/../modelo/MUsuario.php';
-require_once __DIR__ . '/../vista/VUsuario.php';
+require_once __DIR__ . '/../vista/Vista.php';
 
 session_start();
-if(isset($_SESSION['usuario_logueado'])){
-    VUsuario::inithtml();
-    VUsuario::desktop();
-    VUsuario::endhtml();
-}else{
-    VUsuario::inithtml();
-    echo 'kanpoan zaude';
-    VUsuario::endhtml();
+if (!isset($_SESSION['usuario_logueado'])) {
+    header("Location: loginForm.php");
 }
+
+Vista::inithtml();
+Vista::desktop();
+Vista::endhtml();

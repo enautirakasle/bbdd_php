@@ -37,6 +37,13 @@ class Vista {
         echo '<button type="submit" class="btn btn-primary">Iniciar sesión</button>';
         echo '</form>';
     }
+
+    public static function desktop(){
+        echo '<div>';
+        echo '<a href="logout.php" class="btn btn-danger">Cerrar sesión</a>';
+        echo '<h1>Bienvenido al sistema</h1>';
+        echo '</div>';
+    }
 }
 
   

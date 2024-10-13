@@ -1,13 +1,10 @@
 <?php
-// Start Generation Here
-
-use Model\MUsuario;
 
 require_once __DIR__ . '/../modelo/MUsuario.php';
-require_once __DIR__ . '/../vista/VUsuario.php';
+require_once __DIR__ . '/../vista/Vista.php';
 
-VUsuario::inithtml();
-VUsuario::formLogin();
-VUsuario::endhtml();
+Vista::inithtml();
+Vista::formLogin();
+Vista::endhtml();
 
 ?>
