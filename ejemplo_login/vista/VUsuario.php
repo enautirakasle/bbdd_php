@@ -78,5 +78,12 @@ class VUsuario extends Vista {
         echo '<p>Contraseña: ' . $usuario["password"] . '</p>';
         echo '</div>';
     }
+
+    public static function desktop(){
+        echo '<div>';
+        echo '<a href="logout.php" class="btn btn-danger">Cerrar sesión</a>';
+        echo '<h1>Bienvenido al sistema</h1>';
+        echo '</div>';
+    }
 }
 ?>
