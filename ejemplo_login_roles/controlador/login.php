@@ -11,11 +11,7 @@ if ($usuario = MUsuario::usuarioDelSistema($username, $password)) {
     session_start();
     $_SESSION['usuario_logueado'] = $usuario;
 
-    if ($usuario['rol'] == 'admin') {
-        header("Location: admin/desktop.php");
-    } else if ($usuario['rol'] == 'user') {
-        header("Location: user/desktop.php");
-    }
+    header('Location: desktop.php');
 
 } else {
     header("Location: loginForm.php");

@@ -40,15 +40,17 @@ class Vista {
 
     public static function adminDesktop(){
         echo '<div>';
-        echo '<a href="../logout.php" class="btn btn-danger">Cerrar sesión</a>';
-        echo '<h1>Bienvenido al sistema, ADMIN</h1>';
+        // echo '<a href="../logout.php" class="btn btn-danger">Cerrar sesión</a>';
+        echo '<a href="logout.php" class="btn btn-danger">Cerrar sesión</a>';
+        echo '<h1>Bienvenido al sistema ' . $_SESSION['usuario_logueado']['username'] . ', ADMIN</h1>';
         echo '</div>';
     }
 
     public static function userDesktop(){
         echo '<div>';
-        echo '<a href="../logout.php" class="btn btn-danger">Cerrar sesión</a>';
-        echo '<h1>Bienvenido al sistema, USUARIO</h1>';
+        // echo '<a href="../logout.php" class="btn btn-danger">Cerrar sesión</a>';
+        echo '<a href="logout.php" class="btn btn-danger">Cerrar sesión</a>';
+        echo '<h1>Bienvenido al sistema ' . $_SESSION['usuario_logueado']['username'] . ', USUARIO</h1>';
         echo '</div>';
     }
 }
