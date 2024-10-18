@@ -41,7 +41,7 @@ class Vista {
     public static function desktop(){
         echo '<div>';
         echo '<a href="logout.php" class="btn btn-danger">Cerrar sesión</a>';
-        echo '<h1>Bienvenido al sistema</h1>';
+        echo '<h1>Bienvenido al sistema, ' . $_SESSION['usuario_logueado'] .'</h1>';
         echo '</div>';
     }
 }

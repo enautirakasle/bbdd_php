@@ -1,0 +1,24 @@
+https://localhost/dser/bbdd_php/mvc_api/Controller/usuarios.php
+###ususuario id
+GET https://localhost/dser/bbdd_php/mvc_api/Controller/usuario.php?username=a
+
+###
+POST http://localhost/dser/bbdd_php/mvc_api/Controller/usuarioStore.php
+Content-Type: application/x-www-form-urlencoded
+
+username=john_doe&password=123456&nombre=John
+
+###
+POST https://localhost/dser/bbdd_php/mvc_api/Controller/usuarioStoreJSON.php
+Content-Type: application/json
+
+{
+    "username":"eDFDFDF",
+    "nombre":"enaut",
+    "password":"1234"
+}
+###
+POST http://localhost/dser/bbdd_php/mvc_api/Controller/usuarioStore.php
+Content-Type: application/x-www-form-urlencoded
+
+username=ASDFDD&password=123456&nombre=John
