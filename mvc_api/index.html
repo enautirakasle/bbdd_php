@@ -1,208 +1,213 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cliente API</title>
     <script>
 
-    // Función para actualizar un usuario
-    async function actualizarUsuario() {
-        // Recoger los valores de los campos de entrada
-        const username = document.getElementById('updateUsername').value;
-        const nombre = document.getElementById('updateNombre').value;
-        const password = document.getElementById('updatePassword').value;
+        // Función para actualizar un usuario
+        async function actualizarUsuario() {
+            // Recoger los valores de los campos de entrada
+            const username = document.getElementById('updateUsername').value;
+            const nombre = document.getElementById('updateNombre').value;
+            const password = document.getElementById('updatePassword').value;
 
-        // Validar que los campos no estén vacíos
-        if (!username || !nombre || !password) {
-            alert('Por favor, completa todos los campos.');
-            return;
-        }
-
-        // Crear el objeto de datos que se enviará en el cuerpo de la solicitud
-        const data = {
-            username: username,
-            nombre: nombre,
-            password: password
-        };
-
-        try {
-            // Realizar la solicitud POST a la API de actualización de usuario
-            const response = await fetch('https://localhost/dser/bbdd_php/mvc_api/Controller/usuarioUpdate.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: 'username='+username+'&password='+password+'&nombre='+nombre // Convertir los datos a formato JSON
-            });
-
-            // Comprobar si la respuesta del servidor es exitosa
-            if (response.ok) {
-                const result = await response.json();
-                console.log(result);
-
-                // Mostrar un mensaje de éxito al usuario
-                alert('Usuario actualizado correctamente');
-
-                // Limpiar los campos de entrada después de la actualización exitosa
-                document.getElementById('updateUsername').value = '';
-                document.getElementById('updateNombre').value = '';
-                document.getElementById('updatePassword').value = '';
-            } else {
-                // Si el servidor responde con un error, mostrar un mensaje
-                const errorResult = await response.json();
-                alert('Error al actualizar el usuario: ' + errorResult.message);
+            // Validar que los campos no estén vacíos
+            if (!username || !nombre || !password) {
+                alert('Por favor, completa todos los campos.');
+                return;
             }
-        } catch (error) {
-            // Manejar errores en la solicitud
-            console.error('Error:', error);
-            alert('Ocurrió un error al conectar con el servidor.');
-        }
-    }
 
-         // Función para eliminar un usuario
-    async function eliminarUsuario(username) {
-        // Confirmar antes de eliminar
-        if (!confirm(`¿Estás seguro de que deseas eliminar al usuario ${username}?`)) {
-            return;
-        }
+            // Crear el objeto de datos que se enviará en el cuerpo de la solicitud
+            const data = {
+                username: username,
+                nombre: nombre,
+                password: password
+            };
 
-        try {
-            // Realizar la solicitud POST para eliminar al usuario
-            const response = await fetch('https://localhost/dser/bbdd_php/mvc_api/Controller/usuarioDestroy.php?username=' + username, {
-                method: 'GET',
-                // headers: {
-                //     'Content-Type': 'application/json'
-                // },
-                // body: JSON.stringify({ username: username }) // Enviar el username a eliminar
-            });
+            try {
+                // Realizar la solicitud POST a la API de actualización de usuario
+                const response = await fetch('https://localhost/dser/bbdd_php/mvc_api/Controller/usuarioUpdate.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: 'username=' + username + '&password=' + password + '&nombre=' + nombre // Convertir los datos a formato JSON
+                });
 
-            // Comprobar si la eliminación fue exitosa
-            if (response.ok) {
-                alert('Usuario eliminado correctamente');
-                obtenerUsuarios();  // Recargar la tabla después de eliminar
-            } else {
-                const errorResult = await response.json();
-                alert('Error al eliminar el usuario: ' + errorResult.message);
+                // Comprobar si la respuesta del servidor es exitosa
+                if (response.ok) {
+                    const result = await response.json();
+                    console.log(result);
+
+                    // Mostrar un mensaje de éxito al usuario
+                    alert('Usuario actualizado correctamente');
+
+                    // Limpiar los campos de entrada después de la actualización exitosa
+                    document.getElementById('updateUsername').value = '';
+                    document.getElementById('updateNombre').value = '';
+                    document.getElementById('updatePassword').value = '';
+
+                    // Volver a cargar la lista de usuarios para reflejar los cambios
+                    obtenerUsuarios();
+                } else {
+                    // Si el servidor responde con un error, mostrar un mensaje
+                    const errorResult = await response.json();
+                    alert('Error al actualizar el usuario: ' + errorResult.message);
+                }
+            } catch (error) {
+                // Manejar errores en la solicitud
+                console.error('Error:', error);
+                alert('Ocurrió un error al conectar con el servidor.');
             }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('Ocurrió un error al conectar con el servidor.');
-        }
-    }
-
-
-          // Función para crear un nuevo usuario
-    async function crearUsuario() {
-        // Recoger los valores de los campos de entrada
-        const username = document.getElementById('username').value;
-        const nombre = document.getElementById('nombre').value;
-        const password = document.getElementById('password').value;
-
-        // Validar que los campos no estén vacíos
-        if (!username || !nombre || !password) {
-            alert('Por favor, completa todos los campos.');
-            return;
         }
 
-        // Crear el objeto de datos que se enviará en el cuerpo de la solicitud
-        const data = {
-            username: username,
-            nombre: nombre,
-            password: password
-        };
-
-        try {
-            // Realizar la solicitud POST a la API de crear usuario
-            const response = await fetch('https://localhost/dser/bbdd_php/mvc_api/Controller/usuarioStoreJSON.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data) // Convertir los datos a formato JSON
-            });
-
-            // Comprobar si la respuesta del servidor es exitosa
-            if (response.ok) {
-                const result = await response.json();
-                console.log(result);
-
-                // Mostrar un mensaje de éxito al usuario
-                alert('Usuario creado correctamente');
-
-                // Limpiar los campos de entrada después de la creación exitosa
-                document.getElementById('username').value = '';
-                document.getElementById('nombre').value = '';
-                document.getElementById('password').value = '';
-
-                // Volver a cargar la lista de usuarios para reflejar los cambios
-                obtenerUsuarios();
-            } else {
-                // Si el servidor responde con un error, mostrar un mensaje
-                const errorResult = await response.json();
-                alert('Error al crear el usuario: ' + errorResult.message);
+        // Función para eliminar un usuario
+        async function eliminarUsuario(username) {
+            // Confirmar antes de eliminar
+            if (!confirm(`¿Estás seguro de que deseas eliminar al usuario ${username}?`)) {
+                return;
             }
-        } catch (error) {
-            // Manejar errores en la solicitud
-            console.error('Error:', error);
-            alert('Ocurrió un error al conectar con el servidor.');
+
+            try {
+                // Realizar la solicitud POST para eliminar al usuario
+                const response = await fetch('https://localhost/dser/bbdd_php/mvc_api/Controller/usuarioDestroy.php?username=' + username, {
+                    method: 'GET',
+                    // headers: {
+                    //     'Content-Type': 'application/json'
+                    // },
+                    // body: JSON.stringify({ username: username }) // Enviar el username a eliminar
+                });
+
+                // Comprobar si la eliminación fue exitosa
+                if (response.ok) {
+                    alert('Usuario eliminado correctamente');
+                    obtenerUsuarios();  // Recargar la tabla después de eliminar
+                } else {
+                    const errorResult = await response.json();
+                    alert('Error al eliminar el usuario: ' + errorResult.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Ocurrió un error al conectar con el servidor.');
+            }
         }
-    }
+
+
+        // Función para crear un nuevo usuario
+        async function crearUsuario() {
+            // Recoger los valores de los campos de entrada
+            const username = document.getElementById('username').value;
+            const nombre = document.getElementById('nombre').value;
+            const password = document.getElementById('password').value;
+
+            // Validar que los campos no estén vacíos
+            if (!username || !nombre || !password) {
+                alert('Por favor, completa todos los campos.');
+                return;
+            }
+
+            // Crear el objeto de datos que se enviará en el cuerpo de la solicitud
+            const data = {
+                username: username,
+                nombre: nombre,
+                password: password
+            };
+
+            try {
+                // Realizar la solicitud POST a la API de crear usuario
+                const response = await fetch('https://localhost/dser/bbdd_php/mvc_api/Controller/usuarioStoreJSON.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data) // Convertir los datos a formato JSON
+                });
+
+                // Comprobar si la respuesta del servidor es exitosa
+                if (response.ok) {
+                    const result = await response.json();
+                    console.log(result);
+
+                    // Mostrar un mensaje de éxito al usuario
+                    alert('Usuario creado correctamente');
+
+                    // Limpiar los campos de entrada después de la creación exitosa
+                    document.getElementById('username').value = '';
+                    document.getElementById('nombre').value = '';
+                    document.getElementById('password').value = '';
+
+                    // Volver a cargar la lista de usuarios para reflejar los cambios
+                    obtenerUsuarios();
+                } else {
+                    // Si el servidor responde con un error, mostrar un mensaje
+                    const errorResult = await response.json();
+                    alert('Error al crear el usuario: ' + errorResult.message);
+                }
+            } catch (error) {
+                // Manejar errores en la solicitud
+                console.error('Error:', error);
+                alert('Ocurrió un error al conectar con el servidor.');
+            }
+        }
         // Función para obtener y mostrar todos los usuarios en una tabla
         async function obtenerUsuarios() {
             try {
                 const response = await fetch('https://localhost/dser/bbdd_php/mvc_api/Controller/usuarios.php');
                 const usuarios = await response.json();
                 console.log(usuarios);
-                
+
                 // Obtener el cuerpo de la tabla
                 const tbody = document.getElementById('usersTableBody');
-                
+
                 // Limpiar cualquier fila anterior en la tabla
                 tbody.innerHTML = '';
 
                 // Recorrer cada usuario y crear una fila en la tabla
                 // Recorrer cada usuario y crear una fila en la tabla
-usuarios.forEach(usuario => {
-    const fila = document.createElement('tr');
+                usuarios.forEach(usuario => {
+                    const fila = document.createElement('tr');
 
-    // Crear y añadir celdas para cada propiedad del usuario
-    const celdaUsername = document.createElement('td');
-    celdaUsername.textContent = usuario.username;
-    fila.appendChild(celdaUsername);
+                    // Crear y añadir celdas para cada propiedad del usuario
+                    const celdaUsername = document.createElement('td');
+                    celdaUsername.textContent = usuario.username;
+                    fila.appendChild(celdaUsername);
 
-    const celdaNombre = document.createElement('td');
-    celdaNombre.textContent = usuario.nombre;
-    fila.appendChild(celdaNombre);
+                    const celdaNombre = document.createElement('td');
+                    celdaNombre.textContent = usuario.nombre;
+                    fila.appendChild(celdaNombre);
 
-    const celdaPassword = document.createElement('td');
-    celdaPassword.textContent = usuario.password;
-    fila.appendChild(celdaPassword);
+                    const celdaPassword = document.createElement('td');
+                    celdaPassword.textContent = usuario.password;
+                    fila.appendChild(celdaPassword);
 
-    // Crear la celda de acciones (botón eliminar)
-    const celdaAcciones = document.createElement('td');
-    const botonEliminar = document.createElement('button');
-    botonEliminar.textContent = 'Eliminar';
-    botonEliminar.onclick = function() {
-        eliminarUsuario(usuario.username);  // Llamar a la función de eliminación
-    };
-    celdaAcciones.appendChild(botonEliminar);
-    fila.appendChild(celdaAcciones);
+                    // Crear la celda de acciones (botón eliminar)
+                    const celdaAcciones = document.createElement('td');
+                    const botonEliminar = document.createElement('button');
+                    botonEliminar.textContent = 'Eliminar';
+                    botonEliminar.onclick = function () {
+                        eliminarUsuario(usuario.username);  // Llamar a la función de eliminación
+                    };
+                    celdaAcciones.appendChild(botonEliminar);
+                    fila.appendChild(celdaAcciones);
 
-    // Añadir la fila a la tabla
-    tbody.appendChild(fila);
-});
+                    // Añadir la fila a la tabla
+                    tbody.appendChild(fila);
+                });
             } catch (error) {
                 console.error('Error:', error);
             }
         }
 
         // Ejecutar la función obtenerUsuarios cuando se cargue la página
-        window.onload = function() {
+        window.onload = function () {
             obtenerUsuarios();
         };
     </script>
 </head>
+
 <body>
     <h1>Cliente API</h1>
 
@@ -233,4 +238,5 @@ usuarios.forEach(usuario => {
     <input type="password" id="updatePassword" placeholder="Password">
     <button onclick="actualizarUsuario()">Actualizar Usuario</button>
 </body>
+
 </html>
