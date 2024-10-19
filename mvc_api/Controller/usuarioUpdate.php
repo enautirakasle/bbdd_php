@@ -7,7 +7,6 @@
 // Requiere el archivo que contiene la clase Conexion
 require(__DIR__ . '/../Model/MUsuario.php');
 //var_dump($_POST);
-var_dump($_POST);
 $username = $_POST['username'];
 $password = $_POST['password'];
 $nombre = $_POST['nombre'];
@@ -23,9 +22,11 @@ header('Content-Type: application/json');
 
 // Enviar el código de estado 200 (OK)
 http_response_code(200);
-
-// Si no quieres enviar ningún dato, solo un OK sin cuerpo, puedes simplemente devolver un JSON vacío
-echo json_encode([]);
+$datos[]=[
+    'status' => 'OK',
+    'message' => 'Usuario modificado correctamente',
+];
+echo json_encode($datos);
 
 // El exit() en la última línea es importante porque:
 // 1. Asegura que no se ejecute ningún código adicional después de la redirección.
