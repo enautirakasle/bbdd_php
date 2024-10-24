@@ -1,6 +1,6 @@
 https://localhost/dser/bbdd_php/mvc_api/Controller/usuarios.php
 ###ususuario id
-GET https://localhost/dser/bbdd_php/mvc_api/Controller/usuario.php?username=a
+GET https://localhost/dser/bbdd_php/mvc_api/Controller/usuario.php?username=adf
 
 ###
 POST http://localhost/dser/bbdd_php/mvc_api/Controller/usuarioStore.php
